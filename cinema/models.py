@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.text import slugify
 from django.utils import timezone
+from django.contrib.auth.models import User
+
 
 
 
@@ -55,7 +57,7 @@ class Movies(models.Model):
     #showtimes = models.ManyToManyField('Showtime', related_name='cinema_halls') bir hata
     is_active = models.BooleanField(default=True)
     seans_starttime = models.ManyToManyField(Seanslar, related_name='seanslar')
-    salon_no = models.ForeignKey(Salon, on_delete = models.DO_NOTHING )
+    #salon_no = models.ForeignKey(Salon, on_delete = models.DO_NOTHING )
     trailer_url = models.URLField(max_length=200)
     release_year = models.IntegerField()
     imbd_rating = models.FloatField()
@@ -91,3 +93,16 @@ class ComingSoonMovie(models.Model):
         self.slug=slugify(self.title)
         super().save(*args, **kwargs)
     
+
+class Ticket(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movies, on_delete=models.CASCADE)
+    card_number = models.CharField(max_length=10)
+    expiration_date = models.CharField(max_length=7)  # Örneğin: 'MM/YYYY' formatında
+    cvv = models.CharField(max_length=3)
+
+
+    def __str__(self):
+        return f"{self.movie.title} - {self.user.username}"
+
+

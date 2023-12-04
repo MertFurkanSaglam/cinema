@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    h1, h2, p {
+        text-align: center;
+    }
+    
+    .list-group {
+        margin-top: 20px;
+    }
+    
+    .list-group-item {
+        border: 1px solid #dee2e6;
+        border-radius: .25rem;
+        margin-bottom: 10px;
+    }
+    
+</style>
+
+        <h1 class="mb-4">Welcome to Your Profile</h1>
+
+        
+
+        {% if user.is_authenticated %}
+            <p>Hello, {{ user.username }}!</p>
+
+            <h2 class="mt-4">Your Tickets</h2>
+            <ul class="list-group">
+                {% for ticket in user_tickets %}
+                    <li class="list-group-item">{{ ticket.movie_name }} - {{ ticket.showtime }} - {{ ticket.price }}</li>
+                {% empty %}
+                    <li class="list-group-item">No tickets found.</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="mt-4">You are not logged in.</p>
+        {% endif %}
+    </div>
+
+{% endblock %}

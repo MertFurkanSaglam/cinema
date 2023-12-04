@@ -1,0 +1,48 @@
+/* CSS dosyanızdaki stiller */
+
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.movie-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%; /* İstediğiniz genişliği ayarlayabilirsiniz */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff; /* İstenilen bir arka plan rengi ekleyebilirsiniz */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.thumbnail {
+    width: 40%; /* Fotoğrafın genişliğini ayarlayabilirsiniz */
+    max-width: 300px; /* veya istediğiniz başka bir değer */
+    overflow: hidden;
+}
+
+.thumbnail img {
+    width:75%;
+    height: auto;
+}
+
+.movie-info {
+    width: 50%; /* Yazıların genişliğini ayarlayabilirsiniz */
+    text-align: left;
+    padding-left: 20px;
+}
+
+.movie-info h2 {
+    margin-bottom: 10px;
+}
+
+.movie-info p {
+    margin-bottom: 5px;
+}
+
+

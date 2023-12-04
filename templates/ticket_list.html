@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cinema Ticket List</title>
+</head>
+<body>
+    <h1>Cinema Ticket List</h1>
+    <table>
+        <tr>
+            <th>Movie Name</th>
+            <th>Showtime</th>
+            <th>Price</th>
+        </tr>
+        {% for ticket in tickets %}
+        <tr>
+            <td>{{ ticket.movie_name }}</td>
+            <td>{{ ticket.showtime }}</td>
+            <td>${{ ticket.price }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">No tickets available</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

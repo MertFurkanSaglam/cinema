@@ -1,0 +1,97 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ movie.title }} - Movie Details</title>
+    <!-- CSS dosyanızı buraya ekleyebilirsiniz -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .movie-info {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="movie-info">
+        <h2>{{ movie.title }}</h2>
+        <p>Release Date: {{ movie.release_date }}</p>
+        <p>Director: {{ movie.director }}</p>
+        <p>Description: {{ movie.description }}</p>
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+        <h2>Buy Ticket</h2>
+        <label for="card_number">Card Number (10 hane):</label>
+        <input type="text" id="card_number" name="card_number" pattern="[0-9]{10}" required>
+        
+        <label for="expiration_date">Expiration Date(MM/YYYY):</label>
+        <input type="text" id="expiration_date" name="expiration_date" pattern="(0[1-9]|1[0-2])\/[0-9]{4}" placeholder="MM/YYYY" required>
+
+        <label for="cvv">CVV (3 hane):</label>
+        <input type="text" id="cvv" name="cvv" pattern="[0-9]{3}" required>
+
+        <button type="submit">Purchase</button>
+    </form>
+
+</body>
+</html>

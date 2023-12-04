@@ -1,0 +1,38 @@
+/* Stil dosyanızın başına ekleyebilirsiniz */
+
+/* Navbar */
+.navbar {
+    background-color: #3498db; /* Navbar arkaplan rengi */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff; /* Navbar linkleri rengi */
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #fff; /* Navbar linkleri hover rengi */
+    background-color: #2980b9; /* Navbar linkleri üzerine gelindiğinde arkaplan rengi */
+}
+
+/* Container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navbar içindeki listeler */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Navbar linkleri arasındaki boşluk */
+.nav-item {
+    margin-right: 15px;
+}
+
+/* Navbar'daki "Welcome" linki için özel stil */
+.navbar-dark .navbar-nav .welcome-link {
+    font-weight: bold;
+}

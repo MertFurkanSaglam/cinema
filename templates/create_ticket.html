@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create New Ticket</title>
+</head>
+<body>
+    <h1>Create New Ticket</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create Ticket</button>
+    </form>
+</body>
+</html>
