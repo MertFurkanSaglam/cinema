@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ movie.title }} - Movie Details</title>
-    <!-- CSS dosyanızı buraya ekleyebilirsiniz -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -69,6 +68,12 @@
             display: inline-block;
         }
     </style>
+    <script>
+        function showSuccessMessageAndRedirect() {
+            alert("İşlem başarılı!");
+            window.location.href = "{% url 'home' %}";
+        }
+    </script>
 </head>
 <body>
     <div class="movie-info">
@@ -78,7 +83,7 @@
         <p>Description: {{ movie.description }}</p>
     </div>
 
-    <form method="POST">
+    <form method="POST" onsubmit="showSuccessMessageAndRedirect()">
         {% csrf_token %}
         <h2>Buy Ticket</h2>
         <label for="card_number">Card Number (10 hane):</label>
@@ -92,6 +97,5 @@
 
         <button type="submit">Purchase</button>
     </form>
-
 </body>
 </html>

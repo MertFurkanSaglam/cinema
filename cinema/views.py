@@ -35,6 +35,8 @@ def movie_detail(request, slug):
     movie = get_object_or_404(Movies, slug=slug)
     return render(request, 'movie_details.html', {'movie': movie})
 
+def cash_ticket(request):
+    return render(request,'cash.html')
 
 
 

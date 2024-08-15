@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #3b3b3bd9;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -74,4 +74,41 @@ body {
 
 .buy-button:hover {
     background-color: #45a049;
+}
+
+
+
+.mmovie-container {
+    display: inline-block;
+    margin: 10px 20px;
+}
+
+.mmovie-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 300px; /* Örnek bir genişlik */
+}
+
+.mthumbnail img {
+    width: 100%;
+    height: auto;
+}
+
+.mmovie-info {
+    background-color: #fd00f5;
+    padding: 10px;
+}
+
+.mmovie-info h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.mmovie-info p {
+    margin-top: 0;
+}
+
+.movie-link:hover {
+    color: inherit; /* Üzerine gelindiğinde rengi değiştirme */
 }

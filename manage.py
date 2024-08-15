@@ -1,6 +1,5 @@
-import os
 import sys
-
+import os
 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'confing.settings')

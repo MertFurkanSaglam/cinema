@@ -13,22 +13,23 @@
         </ul>
         <ul class="navbar-nav ms-auto">
             {% if user.is_authenticated %}
-                <li class="nav-item" >
-                    <a class="nav-link" href="{% url "logout" %}">Loguot</a>
+                <li class="nav-item">
+                    {% if user.first_name %}
+                        <a class="nav-link" href="{% url 'profile' %}">Welcome, {{ user.first_name|title }}</a>
+                    {% else %}
+                        <a class="nav-link" href="{% url 'profile' %}">Welcome, {{ user.username }}</a>
+                    {% endif %}
                 </li>
-                <li class="nav-item" >
-                    <a class="nav-link" href="{% url "profile" %}">Welcome, {{user.get_full_name|title}}</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                 </li>
-                {% else %}
-
-                <li class="nav-item" >
-                    <a class="nav-link" href="{% url "login" %}">Login</a>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
                 </li>
-                <li class="nav-item" >
-                        <a class="nav-link" href="{% url "register" %}">Register</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">Register</a>
                 </li>
-                
-            
             {% endif %}
         </ul>
     </div>

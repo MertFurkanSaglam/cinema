@@ -12,17 +12,17 @@
     <h1 style="text-align: center;">Filmler</h1>
 
     {% for movie in movies %}
-        <div class="movie-container">
-            <a href="{% url 'movie_detail' movie.slug %}" style="text-decoration: none; color: inherit;">
-                <div class="thumbnail">
-                    <img src="{{ movie.image.url }}" alt="{{ movie.title }}">
-                </div>
-                <div class="movie-info">
-                    <h2>{{ movie.title }}</h2>
-                    <p>{{ movie.description }}</p>
-                </div>
-            </a>
-        </div>
+    <div class="mmovie-container">
+        <a href="{% url 'movie_detail' movie.slug %}" class="mmovie-link">
+            <div class="mthumbnail">
+                <img src="{{ movie.image.url }}" alt="{{ movie.title }}">
+            </div>
+            <div class="mmovie-info">
+                <h2>{{ movie.title }}</h2>
+                <p>{{ movie.description }}</p>
+            </div>
+        </a>
+    </div>
     {% endfor %}
 
     <h1>Welcome to Cinema Ticket Booking</h1>
